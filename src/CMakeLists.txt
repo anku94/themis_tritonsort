@@ -29,6 +29,9 @@ INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
 
 INCLUDE_DIRECTORIES(${BalancedSystems_SOURCE_DIR})
 
+set(DEPRECATION_FLAG "-Wno-deprecated-declarations")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${DEPRECATION_FLAG}")
+
 # Options
 OPTION(USE_CXX_11 "Build with C++ 11" off)
 IF(USE_CXX_11)

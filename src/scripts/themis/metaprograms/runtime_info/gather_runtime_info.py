@@ -336,7 +336,7 @@ def postprocess_workers(workers_info, stage_info, stat_key_length):
     return post_dict
 
 def description_order(description, phase):
-    stage_ordering = description.getStageOrdering(phase)
+    stage_ordering = list(description.getStageOrdering(phase))
 
     def comp(stage_key):
         hostname = None

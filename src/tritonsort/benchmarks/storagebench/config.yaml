@@ -6,9 +6,9 @@ BENCHMARK_DATA_SIZE_PER_NODE:
 PARTITION_SIZE: 1000000000
 
 INPUT_DISK_LIST:
-  storagebench: "/mnt/disks/fioc/USERNAME/storagebench"
+  storagebench: "/users/ankushj/mnt/disk_1/storagebench"
 OUTPUT_DISK_LIST:
-  storagebench: "/mnt/disks/fiod/USERNAME/storagebench"
+  storagebench: "/users/ankushj/mnt/disk_2/storagebench"
 
 # READ and WRITE are used to configure the storage benchmark pipeline
 # READ = 1, WRITE = 1 gives the read/write pipeline:
@@ -58,6 +58,7 @@ DEFAULT_BUFFER_SIZE:
 
 MEMORY_QUOTAS:
   storagebench:
+    reader: 1000000000 #1GB of some reads - AJ added
     writer: 1000000000 #1GB of outstanding writes
 
 # ====

@@ -27,16 +27,16 @@ TEST_F(MemoryUtilsTest, testNormalAllocation) {
   }
 }
 
-TEST_F(MemoryUtilsTest, testReallyHugeAllocationFailsAppropriately) {
-  uint8_t* testArray = NULL;
+// TEST_F(MemoryUtilsTest, testReallyHugeAllocationFailsAppropriately) {
+  // uint8_t* testArray = NULL;
 
-  // Allocating 2^64B of memory is pretty much guaranteed to fail for the next
-  // few years
-  ASSERT_THROW(testArray = new (themis::memcheck) uint8_t[
-      std::numeric_limits<uint64_t>::max()],
-               AssertionFailedException);
+  // // Allocating 2^64B of memory is pretty much guaranteed to fail for the next
+  // // few years
+  // ASSERT_THROW(testArray = new (themis::memcheck) uint8_t[
+      // std::numeric_limits<uint64_t>::max()],
+               // AssertionFailedException);
 
-  if (testArray != NULL) {
-    delete[] testArray;
-  }
-}
+  // if (testArray != NULL) {
+    // delete[] testArray;
+  // }
+// }

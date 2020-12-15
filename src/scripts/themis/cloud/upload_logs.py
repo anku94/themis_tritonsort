@@ -36,6 +36,19 @@ def upload_logs():
                 done = True
             except ProcessExecutionError as e:
                 pass
+    elif provider == "narwhal":
+        aggr_dir = read_conf_file("cluster.conf", "cluster", "logaggr_directory")
+
+        done = False
+        while not done:
+            try:
+                cmd = parallel_ssh["-m"]\
+                        ["cp -r %s %s/cluster_%s/themis_logs" % (log_directory, aggr_dir, cluster_ID)]
+                print cmd
+                cmd()
+                done = True
+            except ProcessExecutionError as e:
+                pass
     else:
         print >>sys.stderr, "Unknown provider %s" % provider
         return 1

@@ -189,7 +189,12 @@ def cluster_status():
     for node in nodes:
         command = command[node]
     command = command | awk['{print $1}']
-    live_nodes = command()
+
+    if len(nodes):
+        live_nodes = command()
+    else:
+        live_nodes = ""
+
     live_nodes = live_nodes.encode("ascii")
     live_nodes = live_nodes.strip().split("\n")
     live_nodes = filter(lambda x : len(x) > 0, live_nodes)

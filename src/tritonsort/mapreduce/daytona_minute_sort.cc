@@ -1,6 +1,7 @@
 #include <cmath>
 #include <signal.h>
 #include <stdlib.h>
+#include <new>
 
 #include "tritonsort/config.h"
 

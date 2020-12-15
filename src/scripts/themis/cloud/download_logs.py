@@ -34,6 +34,18 @@ def download_logs():
                 done = True
             except ProcessExecutionError as e:
                 pass
+    elif provider == "narwhal":
+        aggr_dir = read_conf_file("cluster.conf", "cluster", "logaggr_directory")
+
+        done = False
+        while not done:
+            try:
+                cp = plumbum.local["cp"]
+                cp["-r"]["%s/cluster_%s/themis_logs" % (aggr_dir, cluster_ID)]\
+                        [log_directory]()
+                done = True
+            except ProcessExecutionError as e:
+                pass
 
     else:
         print >>sys.stderr, "Unknown provider %s" % provider
