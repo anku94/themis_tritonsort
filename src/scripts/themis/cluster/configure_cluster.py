@@ -19,8 +19,8 @@ def set_ip_addresses(redis_client, nodes, interface_names, username):
     for interface in interface_names:
 
         # Get the IP address for this interface to be used in Themis
-        command = "/sbin/ifconfig %s | sed \'/inet addr/!d;s/.*addr:\(.*\) "\
-            "Bcast.*$/\\1/\'" % interface
+        command = "/sbin/ifconfig %s | sed \'/inet /!d;s/.*inet \(.*\) "\
+            "netmask.*$/\\1/\'" % interface
 
         return_code, stdout_ifconfig, stderr = parallel_ssh(
             redis_client, command, username, nodes, ignore_bad_hosts=True,

@@ -92,6 +92,12 @@ ALIGNMENT:
 # ====
 # Copied from mapreduce/defaults.yaml
 # ====
+#
+#
+ENHANCED_NETWORK_LOGGING: 0
+ACCEPT_BACKLOG_SIZE: 128
+CONNECT_RETRY_DELAY: 100000
+CONNECT_MAX_RETRIES: 100
 
 # Print header for status log messages
 CHANNEL_STATUS_HEADER: "[STATUS]"

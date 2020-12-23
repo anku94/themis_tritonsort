@@ -3,12 +3,12 @@
 # ====
 BENCHMARK_DATA_SIZE_PER_NODE:
   mixediobench: 10000000000 # 10 GB
-PARTITION_SIZE: 1000000000
+PARTITION_SIZE: 10000000000
 
 INPUT_DISK_LIST:
-  mixediobench: "/mnt/disks/fioc/USERNAME/storagebench"
+  mixediobench: "/users/ankushj/mnt/disk_1/ankushj/inputs/Graysort"
 OUTPUT_DISK_LIST:
-  mixediobench: "/mnt/disks/fiod/USERNAME/mixediobench"
+  mixediobench: "/users/ankushj/mnt/disk_2/miob"
 
 # Comma delimited list of IPs
 PEER_LIST: 192.168.1.5
@@ -161,6 +161,10 @@ ALIGNMENT:
 # ====
 # Copied from mapreduce/defaults.yaml
 # ====
+ENHANCED_NETWORK_LOGGING: 0
+ACCEPT_BACKLOG_SIZE: 128
+CONNECT_RETRY_DELAY: 100000
+CONNECT_MAX_RETRIES: 100
 
 # Print header for status log messages
 CHANNEL_STATUS_HEADER: "[STATUS]"

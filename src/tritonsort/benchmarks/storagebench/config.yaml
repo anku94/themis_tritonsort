@@ -2,11 +2,12 @@
 # Benchmark experiment parameters
 # ====
 BENCHMARK_DATA_SIZE_PER_NODE:
-  storagebench: 10000000000 # 10 GB
-PARTITION_SIZE: 1000000000
+  storagebench: 4000000000 # 10 GB
+PARTITION_SIZE: 4000000000
 
 INPUT_DISK_LIST:
-  storagebench: "/users/ankushj/mnt/disk_1/storagebench"
+  #storagebench: "/users/ankushj/mnt/disk_1/storagebench"
+  storagebench: "/users/ankushj/mnt/disk_1/ankushj/inputs/Graysort"
 OUTPUT_DISK_LIST:
   storagebench: "/users/ankushj/mnt/disk_2/storagebench"
 
@@ -17,7 +18,7 @@ OUTPUT_DISK_LIST:
 #   Reader -> Sink
 # READ = 0, WRITE = 1 gives the write only pipeline:
 #   Generator -> Writer
-READ: 0
+READ: 1
 WRITE: 1
 
 # If 0, generate buffers in round-robin order when using the write-only
@@ -58,8 +59,8 @@ DEFAULT_BUFFER_SIZE:
 
 MEMORY_QUOTAS:
   storagebench:
-    reader: 1000000000 #1GB of some reads - AJ added
-    writer: 1000000000 #1GB of outstanding writes
+    reader: 100000000 #1GB of some reads - AJ added
+    writer: 100000000 #1GB of outstanding writes
 
 # ====
 # Storage parameters
@@ -67,8 +68,8 @@ MEMORY_QUOTAS:
 
 DIRECT_IO:
   storagebench:
-    reader: 1
-    writer: 1
+    reader: 0
+    writer: 0
 
 ALIGNMENT_MULTIPLE: 512
 
@@ -86,10 +87,10 @@ DELETE_AFTER_READ:
 # D files to be read simultaneously, not D reads from a single file. By
 # contrast, the asynchronous writer operates at the buffer level, so a depth of
 # D could cause D buffers for the same file to be written simultaneously.
-ASYNCHRONOUS_IO_DEPTH:
-  storagebench:
-    reader: 2
-    writer: 4
+# ASYNCHRONOUS_IO_DEPTH:
+  # storagebench:
+    # reader: 2
+    # writer: 4
 
 # ====
 # Worker implementations
