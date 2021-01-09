@@ -1,4 +1,4 @@
-import os, yaml, shutil
+import os, yaml, shutil, socket
 
 def flattened_keys(dictionary, sort_function=None):
     for key, value in sorted(dictionary.items(), key=sort_function):
@@ -110,3 +110,9 @@ def backup_if_exists(filename):
                 moved_to_backup = True
             else:
                 backup_index += 1
+
+def getfqdn(redis_client):
+    active_interface=redis_client.lindex("interface_names", 0)
+    active_ip=os.popen('ip addr show %s' % (active_interface,)).read().split("inet ")[1].split("/")[0]
+    local_fqdn = socket.getfqdn(active_ip)
+    return local_fqdn
