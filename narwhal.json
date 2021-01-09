@@ -1,8 +1,8 @@
 {
-  "input_directory": "local:///ankushj/inputs/Graysort",
+  "input_directory": "local:///sortuser/inputs/Graysort",
   "map_function": "PassThroughMapFunction",
-  "intermediate_directory": "local:///ankushj/intermediates/Graysort",
-  "output_directory": "local:///ankushj/outputs/Graysort",
+  "intermediate_directory": "local:///sortuser/intermediates/Graysort",
+  "output_directory": "local:///sortuser/outputs/Graysort",
   "params": {
     "MAP_INPUT_FORMAT_READER": "FixedSizeKVPairFormatReader",
     "REDUCE_INPUT_FORMAT_READER": "FixedSizeKVPairFormatReader",
