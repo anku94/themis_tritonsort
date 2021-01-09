@@ -109,7 +109,7 @@ def generate_graysort_inputs(
         first_partition_map[host] = num_partitions
         num_partitions += len(disk_list)
 
-    local_fqdn = socket.getfqdn()
+    local_fqdn = utils.getfqdn(redis_client)
     if replica_number > 1:
         host_index = hosts.index(local_fqdn)
         # Act as if we are a different host for the purposes of generating

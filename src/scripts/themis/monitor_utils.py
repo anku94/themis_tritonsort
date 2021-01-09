@@ -8,6 +8,7 @@ def start_monitors(log_directory, hostname, vnstat_interface):
     sar_cpu_output_file = open(
         os.path.join(log_directory, "sar-cpu-%s.out" % (hostname)), "w")
     command = ["sar", "1"]
+    print command, sar_cpu_output_file
     sar_cpu_process = subprocess.Popen(command, stdout=sar_cpu_output_file)
     monitor_processes.append(sar_cpu_process)
     monitor_output_files.append(sar_cpu_output_file)

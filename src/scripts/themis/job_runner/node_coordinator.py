@@ -203,6 +203,9 @@ class NodeCoordinator(object):
 
             node_ips = map(lambda x: self.coordinator_db.ipv4_address(x), nodes)
 
+            log.info(node_ips)
+            log.info(node_id)
+
             self.ip_address = node_ips[node_id]
 
             # Get IPs for all interfaces
@@ -543,6 +546,8 @@ class NodeCoordinator(object):
             binary = "LD_PRELOAD=%s %s" % (self.ld_preload, binary)
 
         command = ' '.join((binary, params_string))
+
+        log.error(command)
 
         # Create a file containing the command being run
         cmd_log_file = os.path.join(log_dir, "%s.cmd" % (socket.getfqdn()))
