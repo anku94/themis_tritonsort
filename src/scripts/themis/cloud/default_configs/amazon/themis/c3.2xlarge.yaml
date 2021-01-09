@@ -107,6 +107,10 @@ NUM_WORKERS:
     reader_converter: 1
     reservoir_sample_mapper: 1
     shuffle_mapper: 1
+    scanner_sender: 1
+    scanner_receiver: 1
+    decider_sender: 1
+    decider_receiver: 1
     shuffle_sender: 1
     shuffle_receiver: 1
     buffer_combiner: 1
@@ -166,6 +170,7 @@ MEMORY_QUOTAS:
     reader_converter: 1000000000 # 1GB
     shuffle_mapper: 1000000000
     shuffle_receiver: 1000000000
+    scanner_receiver: 1000000000
     sorter: 1000000000
     boundary_scanner: 1000000000
     coordinator_receiver: 2000000000
